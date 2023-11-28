@@ -611,6 +611,10 @@ const slideClick = (e) => {
 	cargarImagen(id, nombre, ruta, descripcion);
 };
 
+const carousel = (direccion) => {
+	console.log(direccion);
+};
+
 const galeria = document.getElementById('galeria');
 galeria.addEventListener('click', (e) => {
 	const boton = e.target.closest('button');
@@ -633,5 +637,15 @@ galeria.addEventListener('click', (e) => {
 	// --- BOTÓN ANTERIOR IMAGEN
 	if (boton?.dataset?.accion === 'anterior-imagen') {
 		cargarAnteriorSiguiente('anterior');
+	}
+
+	// --- BOTÓN SIGUIENTE IMAGEN CAROUSEL
+	if (boton?.dataset?.accion === 'siguiente-slide') {
+		carousel('adelante');
+	}
+
+	// --- BOTÓN ANTERIOR IMAGEN CAROUSEL
+	if (boton?.dataset?.accion === 'anterior-slide') {
+		carousel('atras');
 	}
 });
